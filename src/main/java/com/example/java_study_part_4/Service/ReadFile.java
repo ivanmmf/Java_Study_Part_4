@@ -2,8 +2,9 @@ package com.example.java_study_part_4.Service;
 
 import com.example.java_study_part_4.Model.Login;
 import com.example.java_study_part_4.Model.User;
-import com.example.java_study_part_4.Repository.LoginRepository;
 import com.example.java_study_part_4.Repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
@@ -13,13 +14,11 @@ import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
-
-import static java.util.logging.Level.INFO;
 
 @Component
 public class ReadFile implements Readable {
-    private static Logger logger = Logger.getLogger(ReadFile.class.getName());
+    private static final Logger LOGGER = LoggerFactory.getLogger(ReadFile.class);
+
     private final UserRepository userRepository;
 
     public ReadFile(UserRepository userRepository) {
@@ -46,7 +45,7 @@ public class ReadFile implements Readable {
                 }
                 String timeStr = s1[0];
                 if (timeStr.isBlank()) {
-                    logger.info(path + " " + "user" + " " + s1[1] + " " + "without date");
+                    LOGGER.info(path + " " + "user" + " " + s1[1] + " " + "without date");
                     line = reader.readLine();
                     continue;
                 }

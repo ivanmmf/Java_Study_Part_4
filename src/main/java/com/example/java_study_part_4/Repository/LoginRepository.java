@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface LoginRepository extends JpaRepository<Login, Integer> {
-    List<Login> saveAll(List<Login> logins);
+
 }
 

@@ -1,12 +1,14 @@
 package com.example.java_study_part_4.Model;
-import java.io.Serializable;
-import java.sql.Timestamp;
-import jakarta.persistence.*;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "LOGINS")
@@ -19,10 +21,6 @@ public class Login implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    public Timestamp getAccessDate() {
-        return accessDate;
-    }
 
     public User getUser() {
         return user;
@@ -56,5 +54,13 @@ public class Login implements Serializable {
         this.application = application;
     }
 
-
+    @Override
+    public String toString() {
+        return "Login{" +
+                "id=" + id +
+                ", accessDate=" + accessDate +
+                ", user=" + user +
+                ", application='" + application + '\'' +
+                '}';
+    }
 }

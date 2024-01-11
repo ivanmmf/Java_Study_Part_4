@@ -15,20 +15,13 @@ import java.util.stream.Collectors;
 public class LogTransformationAspect {
     private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 
-//    @Before(value = "@within(com.example.java_study_part_4.Annotations.LogTransformation) || @annotation(com.example.java_study_part_4.Annotations.LogTransformation)")
-//    public void before(JoinPoint joinPoint) {
-//        String args = Arrays.stream(joinPoint.getArgs())
-//                .map(Object::toString)
-//                .collect(Collectors.joining(","));
-//        LOGGER.info("class: " + joinPoint.getClass() + " method " + joinPoint.getSignature().getName() + " args: " + args);
-//    }
-
     @Around(value = "@within(com.example.java_study_part_4.Annotations.LogTransformation) || @annotation(com.example.java_study_part_4.Annotations.LogTransformation)")
-    public void around(ProceedingJoinPoint joinPoint) throws Throwable {
+    public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
         String args = Arrays.stream(joinPoint.getArgs())
                 .map(Object::toString)
                 .collect(Collectors.joining(","));
         LOGGER.info("class: " + joinPoint.getClass() + " method " + joinPoint.getSignature().getName() + " args: " + args + " return value " + joinPoint.proceed().toString());
+        return joinPoint.proceed();
     }
 
 }

@@ -34,7 +34,7 @@ public class UserRepositoryTest {
     @Test
     void save() {
         User user = User.builder()
-                .id(1)
+                .id(2)
                 .username("ivan_mmf")
                 .fio("Рыбников Иван Павлович")
                 .build();
@@ -44,7 +44,7 @@ public class UserRepositoryTest {
 
         User user1 =  userRepository.findUserByUsername("ivan_mmf");
 
-        assertThat(user1.getId()).isEqualTo(1);
+        assertThat(user1.getId()).isEqualTo(2);
 
     }
 

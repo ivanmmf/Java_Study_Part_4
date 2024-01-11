@@ -1,10 +1,10 @@
 package com.example.java_study_part_4.Model;
 
-import jakarta.persistence.*;
-import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.Cascade;
+
+import java.io.Serializable;
 
 @Entity
 @Table(name = "USERS")
@@ -16,11 +16,11 @@ import org.hibernate.annotations.Cascade;
 @Builder
 public class User implements Serializable {
 
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "USERNAME",unique = true)
+    @Column(name = "USERNAME", unique = true)
     private String username;
 
     @Column(name = "FIO")

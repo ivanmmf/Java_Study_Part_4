@@ -1,5 +1,6 @@
 package com.example.java_study_part_4.Service;
 
+import com.example.java_study_part_4.Annotations.LogTransformation;
 import com.example.java_study_part_4.Model.Login;
 import com.example.java_study_part_4.Model.User;
 import com.example.java_study_part_4.Repository.UserRepository;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
+@LogTransformation
 public class ReadFile implements Readable {
     private static final Logger LOGGER = LoggerFactory.getLogger(ReadFile.class);
 

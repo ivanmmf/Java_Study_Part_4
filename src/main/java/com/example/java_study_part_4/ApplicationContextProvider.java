@@ -1,4 +1,5 @@
 package com.example.java_study_part_4;
+
 import lombok.Getter;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
